@@ -6,39 +6,54 @@
     <title>Loan EMI Calculator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 50px;
-            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4CAF50, #2E8B57);
+            color: white;
         }
         .container {
             max-width: 400px;
-            margin: auto;
+            margin: 50px auto;
             background: white;
             padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            color: black;
+        }
+        h2 {
+            color: #4CAF50;
         }
         input, select, button {
             width: 90%;
-            margin: 10px;
+            margin: 10px 0;
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            display: block;
+            text-align: center;
         }
         button {
             background-color: #28a745;
             color: white;
             cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
         button:hover {
             background-color: #218838;
         }
         #emiResult {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
+            color: #333;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -67,6 +82,10 @@
         <button id="calculate">Calculate EMI</button>
 
         <div id="emiResult"></div>
+    </div>
+
+    <div class="footer">
+        © 2025 Loan Calculator | Built with ❤️ by You
     </div>
 
     <script src="script.js"></script>
