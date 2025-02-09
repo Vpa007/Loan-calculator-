@@ -15,5 +15,5 @@ document.getElementById("calculate").addEventListener("click", function() {
     let emi = (amount * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
 
     // Display result with selected currency symbol
-    document.getElementById("emiResult").innerHTML = "EMI: " + currency + " " + emi.toFixed(2);
+    document.getElementById("emiResult").innerHTML = "Your EMI: <strong>" + currency + " " + emi.toFixed(2) + "</strong>";
 });
