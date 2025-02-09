@@ -1,20 +1,17 @@
-function calculateEMI() {
-    let loanAmount = document.getElementById("loanAmount").value;
-    let interestRate = document.getElementById("interestRate").value;
-    let loanTenure = document.getElementById("loanTenure").value;
+document.getElementById("calculate").addEventListener("click", function() {
+    // Get input values
+    let amount = parseFloat(document.getElementById("amount").value);
+    let rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
+    let tenure = parseInt(document.getElementById("tenure").value);
+    let currency = document.getElementById("currency").value; // Get selected currency
 
-    if (loanAmount === "" || interestRate === "" || loanTenure === "") {
-        alert("Please fill in all fields");
-        return;
+    // EMI Calculation Formula
+    let emi = (amount * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+    
+    // Display result with selected currency symbol
+    if (!isNaN(emi) && amount > 0 && rate > 0 && tenure > 0) {
+        document.getElementById("emiResult").innerHTML = "EMI: " + currency + " " + emi.toFixed(2);
+    } else {
+        document.getElementById("emiResult").innerHTML = "Please enter valid numbers.";
     }
-
-    let principal = parseFloat(loanAmount);
-    let annualInterest = parseFloat(interestRate) / 100;
-    let months = parseFloat(loanTenure) * 12;
-    let monthlyInterest = annualInterest / 12;
-
-    let emi = (principal * monthlyInterest * Math.pow(1 + monthlyInterest, months)) / 
-              (Math.pow(1 + monthlyInterest, months) - 1);
-
-    document.getElementById("emiResult").innerText = `Monthly EMI: $${emi.toFixed(2)}`;
-}
+});
