@@ -3,25 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Loan EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #emiResult {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Loan Calculator</h2>
-        <label>Loan Amount ($)</label>
-        <input type="number" id="loanAmount" placeholder="Enter amount">
+    <h2>Loan EMI Calculator</h2>
+    
+    <label for="amount">Loan Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount">
 
-        <label>Interest Rate (%)</label>
-        <input type="number" id="interestRate" placeholder="Enter rate">
+    <br>
 
-        <label>Loan Tenure (Years)</label>
-        <input type="number" id="loanTenure" placeholder="Enter years">
+    <label for="rate">Interest Rate (% per year):</label>
+    <input type="number" id="rate" placeholder="Enter interest rate">
 
-        <button onclick="calculateEMI()">Calculate EMI</button>
+    <br>
 
-        <h3 id="emiResult"></h3>
-    </div>
+    <label for="tenure">Loan Tenure (Months):</label>
+    <input type="number" id="tenure" placeholder="Enter tenure in months">
+
+    <br>
+
+    <label for="currency">Select Currency:</label>
+    <select id="currency">
+        <option value="₹" selected>INR (₹) - Indian Rupees</option>
+        <option value="$">USD ($) - US Dollars</option>
+        <option value="€">EUR (€) - Euro</option>
+        <option value="£">GBP (£) - British Pounds</option>
+        <option value="¥">JPY (¥) - Japanese Yen</option>
+    </select>
+
+    <br>
+
+    <button id="calculate">Calculate EMI</button>
+
+    <div id="emiResult"></div>
 
     <script src="script.js"></script>
 </body>
